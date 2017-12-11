@@ -63,7 +63,7 @@ function ListController() {
     reset();
     selectedId = id;
     editFlag = true;
-    for(var i = 0; i < vm.list.tasks.length; i++) {
+    for (var i = 0; i < vm.list.tasks.length; i++) {
       var task = vm.list.tasks[i];
       if (task.id == id) {
         vm.currentTask.name = task.name;
@@ -95,7 +95,13 @@ function ListController() {
   }
 
   function save() {
-    //
+    for (var i = 0; i < vm.list.tasks.length; i++) {
+      if (vm.list.tasks[i].id == selectedId) {
+        vm.list.tasks[i].name = vm.currentTask.name;
+        vm.list.tasks[i].complete = vm.currentTask.complete;
+        reset();
+      }
+    }
   }
 
   function cancel() {
