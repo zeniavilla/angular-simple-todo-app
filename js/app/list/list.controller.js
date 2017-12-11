@@ -12,11 +12,13 @@ function ListController() {
   vm.currentTask = {};
   vm.startAdd = startAdd;
   vm.startEdit = startEdit;
+  vm.startRemove = startRemove;
   vm.isInAddMode = isInAddMode;
   vm.isInEditMode = isInEditMode;
   vm.isInReadMode = isInReadMode;
   vm.add = add;
   vm.save = save;
+  vm.cancel = cancel;
 
   vm.list = {
     name: 'Todo List',
@@ -61,8 +63,12 @@ function ListController() {
     //
   }
 
-  function isInReadMode() {
-    return true;
+  function startRemove() {
+    //
+  }
+
+  function isInReadMode(id) {
+    return selectedId < 0 || selectedId !== id;
   }
 
   function isInAddMode() {
@@ -80,6 +86,10 @@ function ListController() {
   }
 
   function save() {
+    //
+  }
+
+  function cancel() {
     //
   }
 }
